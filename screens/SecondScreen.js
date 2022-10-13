@@ -1,10 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import Colors from '../assets/colors/colors'
+import StaticFooter from '../components/StaticFooter'
 
 const SecondScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>SecondScreen</Text>
+      <Text style={{color: Colors.titleColor}}>SecondScreen</Text>
+      <StaticFooter />
     </View>
   )
 }
@@ -16,6 +19,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#2c2c2c",
+        backgroundColor: Colors.appBackground,
+        paddingHorizontal: 20,
       },
 })

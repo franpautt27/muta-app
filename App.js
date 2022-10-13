@@ -7,11 +7,32 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import SecondScreen from "./screens/SecondScreen";
 import CollectionsScreen from "./screens/CollectionsScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import {
+  useFonts,
+  Inter_900Black,
+  Inter_400Regular,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_500Medium
+} from "@expo-google-fonts/inter";
+import Colors from "./assets/colors/colors";
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  let [fontsLoaded] = useFonts({
+    Inter_900Black,
+    Inter_400Regular,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_500Medium
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
     <NavigationContainer>
+      <StatusBar style="light" />
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
@@ -21,21 +42,21 @@ export default function App() {
               iconName = "home";
             } else if (route.name === "Second") {
               iconName = "wallet";
-            } else if(route.name === "Collections"){
-              iconName = "calendar"
-            } else if(route.name === "Profile"){
-              iconName = "user"
+            } else if (route.name === "Collections") {
+              iconName = "calendar";
+            } else if (route.name === "Profile") {
+              iconName = "user";
             }
 
             // You can return any component that you like here!
             return <AntDesign name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: "#C6CE00",
+          tabBarActiveTintColor: Colors.selectedColor,
           tabBarInactiveTintColor: "gray",
           headerShown: false,
           tabBarStyle: {
             height: 80,
-            backgroundColor: "#1c1c1c",
+            backgroundColor: Colors.tabColor,
           },
           tabBarLabelStyle: {
             marginBottom: 20,
@@ -64,17 +85,8 @@ export default function App() {
           name="Profile"
           component={ProfileScreen}
         />
-
       </Tab.Navigator>
     </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
