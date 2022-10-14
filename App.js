@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { Ionicons, AntDesign } from "@expo/vector-icons";
-import { StyleSheet, Text, View } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
 import MainScreen from "./screens/MainScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";

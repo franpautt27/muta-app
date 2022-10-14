@@ -55,7 +55,6 @@ const MainScreen = () => {
       {/* //! HERE COMES THE STATIC FOOTER */}
       <StaticFooter />
 
-      {/* <StatusBar style="auto" /> */}
     </View>
   );
 };

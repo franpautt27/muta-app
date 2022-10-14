@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Pressable, Platform } from "react-native";
-import { Entypo, FontAwesome } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 import Colors from "../assets/colors/colors";
 
 import React from "react";
